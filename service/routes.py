@@ -86,7 +86,6 @@ def create_products():
 
     message = product.serialize()
 
-    
     # Uncomment this line of code once you implement READ A PRODUCT
     location_url = url_for("get_products", product_id=product.id, _external=True)
     # location_url = "/"  # delete once READ is implemented
@@ -125,6 +124,7 @@ def get_products(product_id):
 # U P D A T E   A   P R O D U C T
 ######################################################################
 
+
 @app.route("/products/<int:product_id>", methods=["PUT"])
 def update_products(product_id):
     """
@@ -148,6 +148,7 @@ def update_products(product_id):
 # D E L E T E   A   P R O D U C T
 ######################################################################
 
+
 @app.route("/products/<int:product_id>", methods=["DELETE"])
 def delete_products(product_id):
     """
@@ -166,6 +167,8 @@ def delete_products(product_id):
 ######################################################################
 # LIST PRODUCTS
 ######################################################################
+
+
 @app.route("/products", methods=["GET"])
 def list_products():
     """Returns a list of Products"""
@@ -177,9 +180,10 @@ def list_products():
     app.logger.info("[%s] Products returned", len(results))
     return results, status.HTTP_200_OK
 
+
 @app.route("/products", methods=["GET"])
-def list_products():
-    """Returns a list of Products"""
+def list_products_by_name():
+    """Returns a list of Products by name"""
     app.logger.info("Request to list Products...")
 
     products = []
@@ -196,9 +200,10 @@ def list_products():
     app.logger.info("[%s] Products returned", len(results))
     return results, status.HTTP_200_OK
 
+
 @app.route("/products", methods=["GET"])
-def list_products():
-    """Returns a list of Products"""
+def list_products_by_category():
+    """Returns a list of Products by category"""
     app.logger.info("Request to list Products...")
 
     products = []
@@ -221,9 +226,10 @@ def list_products():
     app.logger.info("[%s] Products returned", len(results))
     return results, status.HTTP_200_OK
 
+
 @app.route("/products", methods=["GET"])
-def list_products():
-    """Returns a list of Products"""
+def list_products_by_availability():
+    """Returns a list of Products by availability"""
     app.logger.info("Request to list Products...")
 
     products = []
